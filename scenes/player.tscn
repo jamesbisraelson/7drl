@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjyonvo3rbdl4"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_6m0su"]
+[ext_resource type="Texture2D" uid="uid://dy3vcegay1y8m" path="res://assets/black.png" id="2_5r4n0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rg3k"]
+radius = 4.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6m0su")
+move_speed = 200.0
+rotation_speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_5r4n0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_6rg3k")
+
+[node name="BulletTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
