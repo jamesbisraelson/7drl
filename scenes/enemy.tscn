@@ -3,16 +3,18 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6526v"]
 [ext_resource type="Texture2D" uid="uid://c8noagwnmk5m5" path="res://assets/enemy.png" id="2_6se12"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6rg3k"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pth2k"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_6526v")
+move_speed = 20.0
+rotate_speed = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_6se12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_6rg3k")
+shape = SubResource("RectangleShape2D_pth2k")

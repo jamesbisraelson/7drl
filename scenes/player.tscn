@@ -8,6 +8,8 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_epm6p")
+move_speed = 100.0
+rotation_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

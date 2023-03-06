@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const BulletBall = preload('res://scenes/ball.tscn')
+const BulletBall = preload('res://scenes/bullet_ball.tscn')
 
 @export var move_speed: float
 @export var rotation_speed: float

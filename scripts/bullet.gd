@@ -5,4 +5,7 @@ extends CharacterBody2D
 
 func _process(delta: float) -> void:
 	velocity = Vector2(move_speed, 0).rotated(rotation)
-	move_and_slide()
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision and collision.get_collider().is_in_group('enemies'):
+		await get_tree().process_frame
+		queue_free()

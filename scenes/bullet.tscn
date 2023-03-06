@@ -6,10 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fx1t"]
 radius = 4.12311
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D" groups=["bullets"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_blvcx")
+move_speed = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
