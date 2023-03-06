@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvfmdt203en6r"]
+[gd_scene load_steps=4 format=3 uid="uid://capomuqd3tlcj"]
 
-[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_oxauv"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6526v"]
 [ext_resource type="Texture2D" uid="uid://c8noagwnmk5m5" path="res://assets/enemy.png" id="2_6se12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rg3k"]
 radius = 4.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
-script = ExtResource("1_oxauv")
+script = ExtResource("1_6526v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

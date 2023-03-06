@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const Ball = preload('res://scenes/ball.tscn')
-const Bullet = preload('res://scenes/bullet.tscn')
+const BulletBall = preload('res://scenes/ball.tscn')
 
 @export var move_speed: float
 @export var rotation_speed: float
@@ -27,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func add_ball() -> void:
-	var ball = Ball.instantiate()
+	var ball = BulletBall.instantiate()
 	balls.append(ball)
 	get_parent().add_child(ball)
 	ball.global_position = global_position
@@ -38,16 +37,3 @@ func update_ball_follow() -> void:
 	balls[0].to_follow = self
 	for i in range(1, len(balls)):
 		balls[i].to_follow = balls[i-1]
-
-
-func _on_bullet_timer_timeout() -> void:
-	var enemies = get_tree().get_nodes_in_group('enemies')
-	var closest = enemies[0]
-	for enemy in enemies:
-		if global_position.distance_squared_to(enemy.global_position) < global_position.distance_squared_to(closest.global_position):
-			closest = enemy
-
-	var bullet = Bullet.instantiate()
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
-	bullet.look_at(closest.global_position)
