@@ -1,21 +1,17 @@
 extends CharacterBody2D
 
 const Bullet = preload('res://scenes/bullet.tscn')
+const COLLAPSE_CHANCE = 0.01
 
 @export var follow_speed: float
-@export_enum('bullet', 'lightning', 'healing') var type: String
+@export_enum('bullet', 'bomb', 'collapse') var type: String
 
 var to_follow: Node2D
 
 
 func _ready():
 	print(type)
-	if type == 'bullet':
-		print('bullet')
-	if type == 'lightning':
-		print('lightning')
-	if type == 'healing':
-		print('healing')
+	add_to_group(type)
 
 
 func _physics_process(delta: float) -> void:
@@ -41,3 +37,10 @@ func fire_bullet() -> void:
 			get_parent().add_child(bullet)
 			bullet.global_position = global_position
 			bullet.look_at(closest.global_position)
+
+
+func collapse():
+	if randf() < 0.01:
+		var enemies = get_tree().get_nodes_in_group('enemies')
+		for enemy in enemies:
+			enemy.should_die = true

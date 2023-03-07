@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cahrt3lxx0xvm"]
+[gd_scene load_steps=7 format=3 uid="uid://cyafsxtb1ilbp"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_bpd6t"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_g4kau"]
 [ext_resource type="PackedScene" uid="uid://bdcmtgroqhh28" path="res://scenes/player.tscn" id="2_bas0r"]
 [ext_resource type="Texture2D" uid="uid://u6k5glspk5qk" path="res://assets/background.png" id="2_d5cin"]
 [ext_resource type="PackedScene" uid="uid://capomuqd3tlcj" path="res://scenes/enemy.tscn" id="3_fb74o"]
@@ -17,7 +17,7 @@ sources/2 = SubResource("TileSetAtlasSource_4t2kr")
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_bpd6t")
+script = ExtResource("1_g4kau")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kon05")
