@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-const BulletBall = preload('res://scenes/bullet_ball.tscn')
+const BulletBall = preload('res://scenes/shooter_ball.tscn')
 const CollapseBall = preload('res://scenes/collapse_ball.tscn')
+const TurretBall = preload('res://scenes/turret_ball.tscn')
 
 @export var move_speed: float
 @export var rotation_speed: float
@@ -23,27 +24,18 @@ func get_input() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_down'):
-		var types = ['bullet', 'collapse']
+		var types = ['bullet', 'collapse', 'turret']
 		add_ball(types[randi_range(0, len(types)-1)])
 
 
 func add_ball(type: String) -> void:
+	var ball
 	if type == 'collapse':
-		add_collapse_ball()
-	if type == 'bullet':
-		add_bullet_ball()
-
-
-func add_bullet_ball() -> void:
-	var ball = BulletBall.instantiate()
-	balls.append(ball)
-	get_parent().add_child(ball)
-	ball.global_position = global_position
-	update_ball_follow()
-
-
-func add_collapse_ball() -> void:
-	var ball = CollapseBall.instantiate()
+		ball = CollapseBall.instantiate()
+	elif type == 'bullet':
+		ball = BulletBall.instantiate()
+	elif type == 'turret':
+		ball = TurretBall.instantiate()
 	balls.append(ball)
 	get_parent().add_child(ball)
 	ball.global_position = global_position

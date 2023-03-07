@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://r4qoiws7kw2l"]
-
-[ext_resource type="PackedScene" uid="uid://ctka577a28pc2" path="res://scenes/ball.tscn" id="1_14faq"]
-
-[node name="Ball" instance=ExtResource("1_14faq")]
-type = "bullet"
