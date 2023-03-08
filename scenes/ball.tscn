@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctka577a28pc2"]
+[gd_scene load_steps=5 format=3 uid="uid://ctka577a28pc2"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_bfoiw"]
 [ext_resource type="Texture2D" uid="uid://cbqgo0ub8cy48" path="res://assets/blue.png" id="1_gba7d"]
+[ext_resource type="Texture2D" uid="uid://b6gpktqljoqpb" path="res://assets/ball_shadow.png" id="2_ceuxi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fx1t"]
 radius = 4.12311
@@ -10,7 +11,13 @@ radius = 4.12311
 script = ExtResource("1_bfoiw")
 follow_speed = 10.0
 
+[node name="Shadow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 2)
+texture = ExtResource("2_ceuxi")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 texture = ExtResource("1_gba7d")
 

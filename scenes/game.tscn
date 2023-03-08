@@ -29,7 +29,7 @@ layer_0/tile_data = PackedInt32Array(18, 2, 0, 65554, 2, 0, 19, 65538, 0, 65555,
 position = Vector2(160, 160)
 
 [node name="Enemy" parent="." instance=ExtResource("3_fb74o")]
-position = Vector2(160, 0)
+position = Vector2(160, 100)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true

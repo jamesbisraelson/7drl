@@ -6,8 +6,8 @@
 [node name="Ball" instance=ExtResource("1_pyjh4")]
 type = "turret"
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_vbf68")
 
-[node name="ActionTimer" parent="." index="2"]
-wait_time = 5.0
+[node name="ActionTimer" parent="." index="3"]
+wait_time = 20.0

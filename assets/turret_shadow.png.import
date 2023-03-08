@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xa4omnd8hxs"
-path="res://.godot/imported/pink.png-0e118c0a13c625367f41793402bc0186.ctex"
+uid="uid://dpoetb4ao3cu0"
+path="res://.godot/imported/turret_shadow.png-529fd0069d88cba38f9fa9a2e48a9379.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pink.png"
-dest_files=["res://.godot/imported/pink.png-0e118c0a13c625367f41793402bc0186.ctex"]
+source_file="res://assets/turret_shadow.png"
+dest_files=["res://.godot/imported/turret_shadow.png-529fd0069d88cba38f9fa9a2e48a9379.ctex"]
 
 [params]
 

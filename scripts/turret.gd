@@ -2,15 +2,30 @@ extends CharacterBody2D
 
 const Bullet = preload('res://scenes/turret_bullet.tscn')
 
-@export var health: float
+@export var max_health: float
 @export var move_amount: float
+@export var deceleration: float
+
+var health: float
+var shadow_offset: Vector2
 
 
 func _ready() -> void:
+	shadow_offset = $Shadow.position
 	move()
 
 
-func move():
+func _process(delta: float) -> void:
+	$Shadow.global_rotation = global_rotation
+	$Shadow.global_position = global_position + shadow_offset
+
+
+func _physics_process(delta: float) -> void:
+	velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
+	move_and_collide(velocity * delta)
+
+
+func move() -> Tween:
 	var new_rot = move_toward(rotation, rotation + wrapf(global_position.angle_to_point(get_closest_enemy_pos()) - rotation, -PI, PI), PI/4)
 	var new_pos = Vector2(move_amount, 0).rotated(new_rot)
 
@@ -22,9 +37,11 @@ func move():
 	tween.tween_callback(move)
 
 	var tween2 = get_tree().create_tween()
-	tween2.tween_property(self, 'scale:x', scale.x, 0.5)
+	tween2.tween_interval(0.5)
 	tween2.tween_property(self, 'scale:x', scale.x * 1.25, 0.5)
 	tween2.tween_property(self, 'scale:x', scale.x, 0.5)
+
+	return tween
 
 
 func get_closest_enemy_pos():

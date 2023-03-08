@@ -9,10 +9,16 @@ const TurretBall = preload('res://scenes/turret_ball.tscn')
 
 var direction: float
 var balls: Array
+var shadow_offset: Vector2
+
+
+func _ready() -> void:
+	shadow_offset = $Shadow.position
 
 
 func _physics_process(delta: float) -> void:
 	get_input()
+	$Shadow.global_position = global_position + shadow_offset
 	rotation += direction * rotation_speed * delta
 	velocity = Vector2(move_speed, 0).rotated(rotation)
 	move_and_slide()
