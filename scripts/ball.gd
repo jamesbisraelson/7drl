@@ -61,5 +61,4 @@ func collapse_enemies():
 	if randf() < COLLAPSE_CHANCE:
 		var enemies = get_tree().get_nodes_in_group('enemies')
 		for enemy in enemies:
-			var hit_tween = enemy.hit_anim()
-			hit_tween.tween_callback(enemy.kill)
+			enemy.take_damage(enemy.max_health)

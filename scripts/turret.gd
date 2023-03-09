@@ -60,7 +60,6 @@ func _on_action_timer_timeout() -> void:
 
 
 func kill():
-	await get_tree().process_frame
 	queue_free()
 
 
