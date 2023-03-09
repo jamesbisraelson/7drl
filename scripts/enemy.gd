@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 const Explosion = preload('res://scenes/explosion.tscn')
+const SmallExplosion = preload('res://scenes/small_explosion.tscn')
+
+const SMALL_EXPLOSION_NUM = 3
 
 @export var move_speed: float
 @export var rotation_speed: float
@@ -27,14 +30,15 @@ func _process(delta: float) -> void:
 
 
 func take_damage(amount: float) -> void:
-	health -= amount
+	if health > 0:
+		health -= amount
 
-	health_bar_anim()
-	hit_anim()
+		health_bar_anim()
+		hit_anim()
 
 
-	if health <= 0:
-		kill()
+		if health <= 0:
+			kill()
 
 
 func hit_anim() -> Tween:
@@ -56,7 +60,13 @@ func kill() -> void:
 	for ball in collapse_balls:
 		ball.collapse_enemies()
 
-	var explosion = Explosion.instantiate()
-	explosion.global_position = self.global_position
-	get_parent().add_child(explosion)
+	var e = Explosion.instantiate()
+	e.global_position = self.global_position
+	get_parent().add_child(e)
+
+	for i in SMALL_EXPLOSION_NUM:
+		var small_e = SmallExplosion.instantiate()
+		small_e.global_position = self.global_position
+		get_parent().add_child(small_e)
+	
 	queue_free()
