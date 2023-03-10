@@ -46,13 +46,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -4.0
-offset_top = -11.0
+offset_top = -10.0
 offset_right = 4.0
-offset_bottom = -3.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
+step = 12.5
 value = 50.0
 texture_under = ExtResource("4_y3qrv")
 texture_progress = ExtResource("5_6gwqk")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

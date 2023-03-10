@@ -25,7 +25,7 @@ func get_input() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_down'):
-		var types = ['bullet', 'collapse', 'turret']
+		var types = ['bullet', 'bullet', 'collapse', 'turret']
 		add_ball(types[randi_range(0, len(types)-1)])
 	if event.is_action_pressed('ui_up'):
 		balls[0].take_damage(101)
