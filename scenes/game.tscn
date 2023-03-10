@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn17nytxqhfr2"]
+[gd_scene load_steps=6 format=3 uid="uid://cn17nytxqhfr2"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_g4kau"]
 [ext_resource type="PackedScene" uid="uid://uolv8dgam6ch" path="res://scenes/player.tscn" id="2_bas0r"]
 [ext_resource type="Texture2D" uid="uid://u6k5glspk5qk" path="res://assets/background.png" id="2_d5cin"]
-[ext_resource type="PackedScene" uid="uid://cclrqew5kwxsr" path="res://scenes/turret.tscn" id="4_k0odr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t2kr"]
 texture = ExtResource("2_d5cin")
@@ -32,8 +31,5 @@ position = Vector2(160, 90)
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="Turret" parent="." instance=ExtResource("4_k0odr")]
-position = Vector2(97, 84)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
