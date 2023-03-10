@@ -8,25 +8,40 @@ const SMALL_EXPLOSION_NUM = 3
 @export var move_speed: float
 @export var rotation_speed: float
 @export var max_health: float
+@export var damage: float
 
 var health: float
 var shadow_offset: Vector2
 
 
 func _ready() -> void:
-	shadow_offset = $Shadow.position
 	health = max_health
+	$HealthBar.modulate.a = 0.0
+	shadow_offset = $Shadow.position
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$HealthBar.value = health
+
+
+func _physics_process(delta: float) -> void:
 	$Sprite2D.rotation += delta * rotation_speed
 	$Shadow.rotation += delta * rotation_speed
 	$Shadow.global_position = global_position + shadow_offset
-	var player: CharacterBody2D = get_node('/root/Game/Player')
+
+	var player: Player = get_node('/root/Game/Player')
 	var direction: Vector2 = global_position.direction_to(player.global_position).normalized()
 	velocity = direction * move_speed
-	move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta)
+
+	if collision:
+		on_collision(collision.get_collider())
+
+
+func on_collision(collision_obj: Object):
+	if collision_obj is Ball:
+		collision_obj.take_damage(damage)
+		take_damage(max_health)
 
 
 func take_damage(amount: float) -> void:
@@ -35,7 +50,6 @@ func take_damage(amount: float) -> void:
 
 		health_bar_anim()
 		hit_anim()
-
 
 		if health <= 0:
 			kill()

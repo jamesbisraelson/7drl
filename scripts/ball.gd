@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Ball extends CharacterBody2D
 
 const Bullet = preload('res://scenes/bullet.tscn')
 const Turret = preload('res://scenes/turret.tscn')
@@ -17,15 +17,25 @@ var shadow_offset: Vector2
 
 
 func _ready():
+	health = max_health
 	shadow_offset = $Shadow.position
+	$HealthBar.modulate.a = 0.0
 	add_to_group(type)
+
+
+func _process(_delta: float) -> void:
+	$HealthBar.value = health
 
 
 func _physics_process(delta: float) -> void:
 	$Shadow.rotation = to_follow.rotation
 	$Shadow.global_position = global_position + shadow_offset
-	global_position = global_position.lerp(to_follow.global_position, follow_speed * delta)
-	rotation = to_follow.rotation
+	$Sprite2D.rotation = to_follow.rotation
+
+	if to_follow is Player:
+		global_position = to_follow.global_position
+	else:
+		global_position = global_position.lerp(to_follow.global_position, follow_speed * delta)
 
 
 func _on_action_timer_timeout() -> void:
@@ -62,3 +72,34 @@ func collapse_enemies():
 		var enemies = get_tree().get_nodes_in_group('enemies')
 		for enemy in enemies:
 			enemy.take_damage(enemy.max_health)
+
+
+func take_damage(amount: float) -> void:
+	if health > 0:
+		health -= amount
+
+		health_bar_anim()
+		hit_anim()
+
+		if health <= 0:
+			kill()
+
+
+func kill():
+	var player: Player = get_node('/root/Game/Player')
+	player.remove_ball(self)
+	queue_free()
+
+
+func hit_anim() -> Tween:
+	var tween = create_tween()
+	tween.tween_property($Sprite2D, 'modulate', Color(10, 10, 10), 0.05)
+	tween.tween_property($Sprite2D, 'modulate', Color(1, 1, 1), 0.05)
+	return tween
+
+
+func health_bar_anim() -> void:
+	var tween = create_tween()
+	tween.tween_property($HealthBar, 'modulate:a', 1.0, 0.25)
+	tween.tween_interval(3.0)
+	tween.tween_property($HealthBar, 'modulate:a', 0.0, 0.25)

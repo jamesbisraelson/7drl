@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://5f5323ouq0cl"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ctka577a28pc2" path="res://scenes/ball.tscn" id="1_eivue"]
-[ext_resource type="Texture2D" uid="uid://mprwsd0xath8" path="res://assets/green.png" id="2_ueqf3"]
+[ext_resource type="Texture2D" uid="uid://mprwsd0xath8" path="res://assets/ball_green.png" id="2_ueqf3"]
 
 [node name="Ball" instance=ExtResource("1_eivue")]
 type = "collapse"

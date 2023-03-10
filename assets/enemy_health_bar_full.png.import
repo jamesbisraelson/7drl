@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sgtxtvmn2d8t"
-path="res://.godot/imported/orange.png-d3b54cc2234c711e40e24f848d2ffcbc.ctex"
+uid="uid://dng2durhqaa5g"
+path="res://.godot/imported/enemy_health_bar_full.png-7114d36b1265fbcd4371569ab11876e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/orange.png"
-dest_files=["res://.godot/imported/orange.png-d3b54cc2234c711e40e24f848d2ffcbc.ctex"]
+source_file="res://assets/enemy_health_bar_full.png"
+dest_files=["res://.godot/imported/enemy_health_bar_full.png-7114d36b1265fbcd4371569ab11876e1.ctex"]
 
 [params]
 

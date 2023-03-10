@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://capomuqd3tlcj"]
+[gd_scene load_steps=7 format=3 uid="uid://cfkr5u57incra"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6526v"]
 [ext_resource type="Texture2D" uid="uid://c8noagwnmk5m5" path="res://assets/enemy.png" id="2_6se12"]
 [ext_resource type="Texture2D" uid="uid://dtkqog4kqutbu" path="res://assets/enemy_shadow.png" id="2_lbs7v"]
-[ext_resource type="Texture2D" uid="uid://bg2ahgc1gk5iy" path="res://assets/health_bar.png" id="3_fc0ta"]
-[ext_resource type="Texture2D" uid="uid://dng2durhqaa5g" path="res://assets/health_bar_red.png" id="4_6i6hm"]
+[ext_resource type="Texture2D" uid="uid://bg2ahgc1gk5iy" path="res://assets/enemy_health_bar_empty.png" id="4_b20wf"]
+[ext_resource type="Texture2D" uid="uid://dng2durhqaa5g" path="res://assets/enemy_health_bar_full.png" id="5_cmmha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pth2k"]
 
@@ -16,6 +16,7 @@ script = ExtResource("1_6526v")
 move_speed = 20.0
 rotation_speed = 1.5
 max_health = 100.0
+damage = 25.0
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -32,7 +33,6 @@ visible = false
 shape = SubResource("RectangleShape2D_pth2k")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-modulate = Color(1, 1, 1, 0)
 z_index = 2
 texture_filter = 1
 anchors_preset = 7
@@ -46,5 +46,6 @@ offset_right = 8.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_under = ExtResource("3_fc0ta")
-texture_progress = ExtResource("4_6i6hm")
+value = 50.0
+texture_under = ExtResource("4_b20wf")
+texture_progress = ExtResource("5_cmmha")
