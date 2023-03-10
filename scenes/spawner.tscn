@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bph23twid8x35"]
+
+[ext_resource type="Texture2D" uid="uid://dtbq3titwxli3" path="res://assets/spawner.png" id="1_5q2ho"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="2_it5r0"]
+[ext_resource type="Texture2D" uid="uid://bhymskmegugw6" path="res://assets/spawner_shadow.png" id="3_txsh8"]
+
+[node name="Spawner" type="Sprite2D"]
+z_index = 4
+position = Vector2(82, 116)
+texture = ExtResource("1_5q2ho")
+script = ExtResource("2_it5r0")
+rotation_speed = 1.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2, 2)
+texture = ExtResource("3_txsh8")

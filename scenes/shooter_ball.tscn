@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://r4qoiws7kw2l"]
 
-[ext_resource type="PackedScene" uid="uid://ctka577a28pc2" path="res://scenes/ball.tscn" id="1_rgvni"]
+[ext_resource type="PackedScene" uid="uid://drcrg5s86rh3l" path="res://scenes/ball.tscn" id="1_rgvni"]
 
 [node name="Ball" instance=ExtResource("1_rgvni")]
 type = "bullet"

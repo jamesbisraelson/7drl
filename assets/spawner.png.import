@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dng2durhqaa5g"
-path="res://.godot/imported/enemy_health_bar_full.png-7114d36b1265fbcd4371569ab11876e1.ctex"
+uid="uid://dtbq3titwxli3"
+path="res://.godot/imported/spawner.png-d7cc71a38a23c8c40c435efe361ba5f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_health_bar_full.png"
-dest_files=["res://.godot/imported/enemy_health_bar_full.png-7114d36b1265fbcd4371569ab11876e1.ctex"]
+source_file="res://assets/spawner.png"
+dest_files=["res://.godot/imported/spawner.png-d7cc71a38a23c8c40c435efe361ba5f6.ctex"]
 
 [params]
 

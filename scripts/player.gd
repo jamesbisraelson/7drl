@@ -42,6 +42,7 @@ func add_ball(type: String) -> void:
 	balls.append(ball)
 	get_parent().add_child(ball)
 	ball.global_position = global_position
+	ball.player = self
 	update_ball_follow()
 
 

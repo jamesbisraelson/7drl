@@ -3,20 +3,21 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6526v"]
 [ext_resource type="Texture2D" uid="uid://c8noagwnmk5m5" path="res://assets/enemy.png" id="2_6se12"]
 [ext_resource type="Texture2D" uid="uid://dtkqog4kqutbu" path="res://assets/enemy_shadow.png" id="2_lbs7v"]
-[ext_resource type="Texture2D" uid="uid://bg2ahgc1gk5iy" path="res://assets/enemy_health_bar_empty.png" id="4_b20wf"]
-[ext_resource type="Texture2D" uid="uid://dng2durhqaa5g" path="res://assets/enemy_health_bar_full.png" id="5_cmmha"]
+[ext_resource type="Texture2D" uid="uid://dhdqd7odqjrs" path="res://assets/health_bar_empty.png" id="4_6jl2q"]
+[ext_resource type="Texture2D" uid="uid://r6jgef7eh8nu" path="res://assets/health_bar_red.png" id="5_5wxkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pth2k"]
+size = Vector2(10, 9.58902)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(1, 1.04286)
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_6526v")
-move_speed = 20.0
+move_speed = 50.0
 rotation_speed = 1.5
 max_health = 100.0
-damage = 25.0
+damage = 40.0
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -26,10 +27,11 @@ texture = ExtResource("2_lbs7v")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 texture_filter = 1
+position = Vector2(0, -0.0821972)
+scale = Vector2(1, 0.979451)
 texture = ExtResource("2_6se12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_pth2k")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
@@ -40,12 +42,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -19.0
-offset_right = 8.0
-offset_bottom = -3.0
+offset_left = -4.0
+offset_top = -10.5479
+offset_right = 4.0
+offset_bottom = -2.54792
 grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
-texture_under = ExtResource("4_b20wf")
-texture_progress = ExtResource("5_cmmha")
+texture_under = ExtResource("4_6jl2q")
+texture_progress = ExtResource("5_5wxkr")

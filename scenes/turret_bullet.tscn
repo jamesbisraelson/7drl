@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkbs1c5vat37r"]
 
-[ext_resource type="PackedScene" uid="uid://coruwxe4wwotv" path="res://scenes/bullet.tscn" id="1_u2dkk"]
+[ext_resource type="PackedScene" uid="uid://b1mpyvf4e5qqc" path="res://scenes/bullet.tscn" id="1_u2dkk"]
 [ext_resource type="Texture2D" uid="uid://dm44h8rhxdo14" path="res://assets/turret_bullet.png" id="2_0qjum"]
 
 [node name="Bullet" instance=ExtResource("1_u2dkk")]

@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://tg2575jdbri3"]
+[gd_scene load_steps=7 format=3 uid="uid://drcrg5s86rh3l"]
 
-[ext_resource type="Script" path="res://scripts/ball.gd" id="1_bfoiw"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_asl82"]
 [ext_resource type="Texture2D" uid="uid://b6gpktqljoqpb" path="res://assets/ball_shadow.png" id="2_ceuxi"]
 [ext_resource type="Texture2D" uid="uid://cbqgo0ub8cy48" path="res://assets/ball_blue.png" id="3_0gkrl"]
-[ext_resource type="Texture2D" uid="uid://dhdqd7odqjrs" path="res://assets/ball_health_bar.png" id="4_3nhb3"]
-[ext_resource type="Texture2D" uid="uid://d4ck7141pc4wk" path="res://assets/ball_blue_health_bar_full.png" id="5_6n7gv"]
+[ext_resource type="Texture2D" uid="uid://dhdqd7odqjrs" path="res://assets/health_bar_empty.png" id="4_w0s0t"]
+[ext_resource type="Texture2D" uid="uid://d4ck7141pc4wk" path="res://assets/health_bar_blue.png" id="5_4iyip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fx1t"]
 radius = 4.12311
 
 [node name="Ball" type="CharacterBody2D"]
 collision_mask = 0
-script = ExtResource("1_bfoiw")
+script = ExtResource("1_asl82")
 follow_speed = 10.0
 max_health = 100.0
 
@@ -47,7 +47,7 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
-texture_under = ExtResource("4_3nhb3")
-texture_progress = ExtResource("5_6n7gv")
+texture_under = ExtResource("4_w0s0t")
+texture_progress = ExtResource("5_4iyip")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

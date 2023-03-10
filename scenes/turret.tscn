@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cclrqew5kwxsr"]
+[gd_scene load_steps=7 format=3 uid="uid://cclrqew5kwxsr"]
 
 [ext_resource type="Script" path="res://scripts/turret.gd" id="1_wwb3x"]
 [ext_resource type="Texture2D" uid="uid://dpoetb4ao3cu0" path="res://assets/turret_shadow.png" id="2_e2bo1"]
 [ext_resource type="Texture2D" uid="uid://cpftu1is580bb" path="res://assets/turret.png" id="2_ruoic"]
+[ext_resource type="Texture2D" uid="uid://dhdqd7odqjrs" path="res://assets/health_bar_empty.png" id="4_y3qrv"]
+[ext_resource type="Texture2D" uid="uid://d4ck7141pc4wk" path="res://assets/health_bar_blue.png" id="5_6gwqk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umj60"]
-radius = 4.0
-height = 16.0
+radius = 3.0
+height = 14.0
 
 [node name="Turret" type="CharacterBody2D"]
 texture_filter = 1
+position = Vector2(0, 1)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_wwb3x")
+max_health = 100.0
 move_amount = 5.0
 deceleration = 1000.0
 
@@ -32,5 +36,23 @@ shape = SubResource("CapsuleShape2D_umj60")
 
 [node name="ActionTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+z_index = 2
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -11.0
+offset_right = 4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+texture_under = ExtResource("4_y3qrv")
+texture_progress = ExtResource("5_6gwqk")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]

@@ -18,17 +18,22 @@ func _ready() -> void:
 	health = max_health
 	$HealthBar.modulate.a = 0.0
 	shadow_offset = $Shadow.position
+	scale = Vector2.ZERO
+
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, 'scale', Vector2.ONE, 0.5)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	$HealthBar.value = health
-
-
-func _physics_process(delta: float) -> void:
 	$Sprite2D.rotation += delta * rotation_speed
 	$Shadow.rotation += delta * rotation_speed
 	$Shadow.global_position = global_position + shadow_offset
 
+
+func _physics_process(delta: float) -> void:
 	var player: Player = get_node('/root/Game/Player')
 	var direction: Vector2 = global_position.direction_to(player.global_position).normalized()
 	velocity = direction * move_speed
@@ -39,9 +44,9 @@ func _physics_process(delta: float) -> void:
 
 
 func on_collision(collision_obj: Object):
-	if collision_obj is Ball:
+	if collision_obj is Ball or collision_obj is Turret:
 		collision_obj.take_damage(damage)
-		take_damage(max_health)
+		kill()
 
 
 func take_damage(amount: float) -> void:

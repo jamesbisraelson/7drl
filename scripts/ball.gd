@@ -13,6 +13,7 @@ var health: float
 @export_enum('bullet', 'turret', 'collapse') var type: String
 
 var to_follow: Node2D
+var player: Player
 var shadow_offset: Vector2
 
 
@@ -28,9 +29,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	$Shadow.rotation = to_follow.rotation
+	$Shadow.rotation = player.rotation
 	$Shadow.global_position = global_position + shadow_offset
-	$Sprite2D.rotation = to_follow.rotation
+	$Sprite2D.rotation = player.rotation
 
 	if to_follow is Player:
 		global_position = to_follow.global_position
@@ -86,7 +87,6 @@ func take_damage(amount: float) -> void:
 
 
 func kill():
-	var player: Player = get_node('/root/Game/Player')
 	player.remove_ball(self)
 	queue_free()
 
